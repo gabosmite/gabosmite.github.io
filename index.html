@@ -45,7 +45,7 @@
 			<div class="scroll-wrapper">
 				<div class="b1Gracias scroll-item">
 					<h2>AGRADECERÍAMOS MUCHO</h2>
-					<p>Verte con una prenda verde que contraste a la perfección con nuestro <strong>Estilo Botánico de nuestra reunión</strong></p>
+					<p>Verte con una prenda verde que contraste a la perfección con nuestro <strong>Estilo Botánico de nuestra reunion</strong></p>
 				</div>
 				<div class="b1Fin scroll-item">
 					<h2>CELEBREMOS JUNTOS</h2>
@@ -57,6 +57,22 @@
 			<div class="b1TableImg5"><img class="" src="./invitacion-trazo.png" width="150" alt=""></div>
 		</div>
 	</section>
+
+	<!-- <div class="player" >
+		<audio class="audio" src="./audio.mp3" autoplay type="audio" loop=""></audio>
+	</div> -->
+	<div class="b1PlayaudioWrapper">
+		<a href=""  class="b1Playaudio">
+			<img class="mute" src="./mute.svg" width="28" alt="">
+			<img class="on" src="./aunmute.svg" width="28" alt="">
+		</a>
+		
+	</div>
+	<div style="display:none;">
+		<audio controls autoplay id="myautoload" loop="" preload="metadata" playsinline>
+		  <source src="./audio.mp3" type="audio/mp3" >
+		</audio>
+	</div>
 </body>
 
 <script
@@ -65,6 +81,45 @@
   crossorigin="anonymous"></script>
 
 <script type="text/javascript" >
+	const button = document.querySelector(".b1Playaudio");
+	const icon = document.querySelector(".b1Playaudio > img");
+	const audio = document.querySelector("#myautoload");
+
+	button.addEventListener("click", () => {
+	  if (audio.paused) {
+	    audio.volume = 1;
+	    audio.play();
+	    button.classList.remove('up');
+	    button.classList.add('mute');
+	    
+	  } else {
+	    audio.pause();
+	    button.classList.remove('mute');
+	    button.classList.add('up');
+	  }
+	  button.classList.add("fade");
+	});
+
+	// window.onload = setInterval(GameLoop, 1000 / 10); //10fps
+
+	// let myAudio = new Audio();
+
+	// myAudio.src = './audio.mp3';
+
+	// function Gameloop() {
+	//     myAudio.play();
+	//     if (myAudio.paused == true) {
+	//         myAudio.play();
+	//     }
+	// }
+	// myAudio.addEventListener('ended', () => {
+	//     myAudio.play();
+	// })
+	$('body').on('click', '.b1Playaudio', function(event) {
+		event.preventDefault();
+		$('#myautoload').play();
+	});
+
  window.addEventListener("load", (event) => {
     if(document.getElementById('b1Fecha')){
         const getScroll = () => {
