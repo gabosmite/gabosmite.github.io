@@ -248,7 +248,7 @@ body{
 .b1FechaTitle h4 span{
 	display: block;
 }
-.b1Ubicación{
+.b1Ubicacion{
 	max-width: 230px;
 	width: 100%;
 	margin:  auto;
@@ -256,13 +256,13 @@ body{
 	margin-bottom:  40px;
 	
 }	
-.b1Ubicación h2{
+.b1Ubicacion h2{
 	font-size: 14px;
 	font-family: 'scope_oneregular';
 	text-transform: uppercase;
 	margin-bottom: 30px;
 }
-.b1Ubicación p{
+.b1Ubicacion p{
 	max-width: 270px;
 	width: 100%;
 	margin: auto;
@@ -271,11 +271,12 @@ body{
 	margin-bottom: 10px;
 }
 
-.b1Ubicación p strong{
+.b1Ubicacion p strong{
 	font-family: 'larken-mediumregular';
 	font-size: 12px;
+	display:block;
 }
-.b1Ubicación a{
+.b1Ubicacion a{
 	font-family: 'larken-mediumregular';
 	appearance: none;
 	font-size: 12px;
