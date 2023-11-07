@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" >
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Invitación</title>
+	<link rel="stylesheet" href="./index.css">
+	<link rel="stylesheet" href="./fonts.css">
+	<link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+
+</head>
+<body>
+	<section class="b1">
+		<div class="b1Table">
+			<div class="b1TableImg1"><img class="" src="./invitacionhojas.png" width="193" alt=""></div>
+			<!-- <div class="b1TableImg1-1"><img class="" src="./invitacionhojas.png" width="100" alt=""></div> -->
+			<img src="./invitaciontitle.png" width="140" alt="">
+			<div class="b1Title scroll-wrapper">
+				<h1 class="scroll-item">Gabriel Trujillo <span>y</span> Deyna Panduro</h1>
+				<p class="scroll-item">TENEMOS EL AGRADO DE INVITARTE</p>
+			</div>
+			<div class="b1Fecha scroll-wrapper" id="b1Fecha">
+				<div class="b1TableImg2"><img class="" src="./invitacionhojas.png" width="100" alt=""></div>
+				<div class="b1TableImg3"><img class="" src="./invitacionhojas.png" width="100" alt=""></div>
+				<div class="b1FechaTitle">
+					<h2 class="scroll-item">SABÁDO</h2>
+					<div class="b1FechaNumbre scroll-item">
+						<span class="b20ItemCount">11</span>/<span class="b20ItemCount">11</span>
+					</div>
+					<h3 class="scroll-item">noviembre</h3>
+					<h4 class="scroll-item">
+						<span>2023</span>
+						<span>06:00 pm</span>
+					</h4>
+				</div>
+			</div>
+			<div class="b1Ubicación scroll-wrapper">
+				<div class="scroll-item">
+					<h2 class="">CELEBREMOS ESTE <br> MOMENTO ESPECIAL EN</h2>
+					<p><strong>Jr.Chavin de Huantar 646 (Zarate - Lima)</strong> Altura cdra 5 de chimu.  Por Lanzon</p>
+				</div>
+				<a href="https://www.google.com/maps/place/Chavin+de+Huantar+646,+Lima+15401/@-12.027376,-77.0055119,17z/data=!3m1!4b1!4m6!3m5!1s0x9105c518de8ad63f:0x73045500a50023c1!8m2!3d-12.027376!4d-77.002937!16s%2Fg%2F11j6wj6cm7?entry=ttu" target="_blank" class="scroll-item" >PRESIONA PARA VER EN EL MAPA</a>
+			</div>
+			<div class="scroll-wrapper">
+				<div class="b1Gracias scroll-item">
+					<h2>AGRADECERÍAMOS MUCHO</h2>
+					<p>Verte con una prenda verde que contraste a la perfección con nuestro <strong>Estilo Botánico de nuestro reunion</strong></p>
+				</div>
+				<div class="b1Fin scroll-item">
+					<h2>CELEBREMOS JUNTOS</h2>
+					<h3>¡Te esperamos!</h3>
+				</div>
+				
+			</div>
+			<div class="b1TableImg4"><img class="" src="./invitacionhojas.png" width="223" alt=""></div>
+			<div class="b1TableImg5"><img class="" src="./invitacion-trazo.png" width="150" alt=""></div>
+		</div>
+	</section>
+</body>
+
+<script
+  src="https://code.jquery.com/jquery-3.7.1.min.js"
+  integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+  crossorigin="anonymous"></script>
+
+<script type="text/javascript" >
+ window.addEventListener("load", (event) => {
+    if(document.getElementById('b1Fecha')){
+        const getScroll = () => {
+            let heightWindow = parseInt(window.innerHeight / 2),
+            topWindow = parseInt(window.scrollY),
+            comparePos = heightWindow + topWindow,
+            elB20 = document.getElementById('b1Fecha'),
+            elB20line = document.getElementById('b1Fecha'),
+            elB20Top = elB20.offsetTop,
+            elB20lineTop = elB20line.offsetTop;
+            if(comparePos > elB20Top){
+        // animate count
+                if(elB20.classList.contains('active') == false){
+                    
+                    $('.b20ItemCount').each(function () {
+                        $(this).prop('Counter',0).animate({
+                            Counter: $(this).text()
+                        }, {
+                            duration: 2000,
+                            easing: 'swing',
+                            step: function (now) {
+                        now = Number(Math.ceil(now)).toLocaleString('en');
+                                $(this).text(now);
+                            }
+                           });
+                    });
+
+                }
+                elB20.classList.add('active')
+            }
+
+            if(comparePos > elB20lineTop){
+                if(elB20line.classList.contains('active') == false){
+            // loadBarScroll()
+                }
+                elB20line.classList.add('active')
+            }
+        }
+        getScroll()
+        window.onscroll = getScroll
+    }
+    console.log("page is fully loaded");
+});
+
+//OBSERVERS
+// Mp4 Video en Caja
+function playMp4(elementToPlay) {
+	// $(elementToPlay).each(function(index, el) {
+		if (!!$(elementToPlay).find('video').length) {
+			$(elementToPlay).find('video').get(0).play();
+			$(elementToPlay).addClass('video') 	
+		}else{return}
+	// });
+}
+
+//CONFIGURACION POR DEFECTO DEL OBSERVER
+const appearOptions = {
+    threshold: 0,
+    rootMargin: "0px 0px -30% 0px"
+};
+
+const imgOptions = {
+    threshold: 0,
+    rootMargin: "0px 0px 10% 0px"
+};
+
+// OBSERVER BASICO (SOLO AGREGA UNA CLASE)
+const simpleObs = new IntersectionObserver((entries,simpleObs)=>{
+    entries.forEach(entry =>{
+        let obsItem = entry.target
+        if (!!entry.isIntersecting) {
+            obsItem.classList.add("isVisible");
+            simpleObs.unobserve(obsItem)
+        }else {return;}
+    })
+},appearOptions)
+
+const obsItemArray = document.querySelectorAll(".obsv");
+obsItemArray.forEach(fader => {
+    setTimeout(() => {
+        simpleObs.observe(fader);
+    }, 500);
+})
+
+// OBSERVER PARA ANIMACIONES DE ENTRADA 
+const appearOnScroll = new IntersectionObserver(function(
+    entries,
+    appearOnScroll
+    ) {
+    entries.forEach(entry => {
+        let scrollItem = entry.target
+        if (!!entry.isIntersecting) {
+            let listOfItems = scrollItem.querySelectorAll('.scroll-item')
+            Array.prototype.forEach.call(listOfItems, (el, i) => {
+                el.style.transitionDelay = `${i * 170}` + 'ms'
+                el.classList.add("animaActive");
+            })
+            appearOnScroll.unobserve(scrollItem);
+            
+            setTimeout(() => {
+                listOfItems.forEach((el)=>{
+                    el.style.transitionDelay = '0ms'
+                    el.classList.remove("initAnima")
+                    el.classList.remove("animaActive")
+                    el.classList.remove("scroll-item")
+                })
+            }, 1500);
+        } else {return;}
+    });
+},
+appearOptions)
+
+const faderWrap = document.querySelectorAll(".scroll-wrapper");
+faderWrap.forEach(wrap => {
+    let listOfItems = wrap.querySelectorAll('.scroll-item')
+    listOfItems.forEach(fader => {
+        let dataAnima = fader.getAttribute('data-anima')
+        if (!dataAnima) {
+            fader.classList.add("initAnima")
+        }else{
+            fader.classList.add(`${dataAnima}`)
+        }
+    })
+    setTimeout(() => {
+        appearOnScroll.observe(wrap);
+    }, 500);
+})
+
+
+//OBSERVER PARA IMG
+const imgOnScroll = new IntersectionObserver(function(
+    entries,
+    imgOnScroll
+    ) {
+    entries.forEach(entry => {
+        let scrollItem = entry.target
+        let datasrc = scrollItem.getAttribute('data-src')
+        if (!!entry.isIntersecting) {
+            scrollItem.src = datasrc
+            imgOnScroll.unobserve(scrollItem);
+        } else {return;}
+    });
+},
+imgOptions);
+
+const imgItem = document.querySelectorAll(".imgLazy");
+imgItem.forEach(img => {
+  imgOnScroll.observe(img);
+}); 
+
+// OBSERVER PARA VIDEO
+const playOnScroll = new IntersectionObserver(function(
+    entries,
+    playOnScroll
+    ) {
+    entries.forEach(entry => {
+        let scrollItem = entry.target
+        if (!!entry.isIntersecting) {
+            playMp4(scrollItem)
+            playOnScroll.unobserve(scrollItem);
+        } else {return;}
+    });
+},
+appearOptions);
+
+const videoItem = document.querySelectorAll(".mp4Autoplay");
+videoItem.forEach(video => {
+  playOnScroll.observe(video);
+}); 
+ 
+</script>
+
+
+
+
+
+
+
+
+</html>
