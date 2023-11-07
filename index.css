@@ -168,6 +168,7 @@ body{
 
 .b1Table{
 	max-width: 420px;
+	width: 100%;
 	margin:  auto;
 	background-image: url('./invitacion.jpg');
 	background-size: cover;
@@ -249,6 +250,7 @@ body{
 }
 .b1Ubicación{
 	max-width: 230px;
+	width: 100%;
 	margin:  auto;
 	margin-top: 55px;
 	margin-bottom:  40px;
@@ -262,6 +264,7 @@ body{
 }
 .b1Ubicación p{
 	max-width: 270px;
+	width: 100%;
 	margin: auto;
 	font-family: 'larken-lightregular';
 	font-size: 12px;
@@ -291,6 +294,7 @@ body{
 .b1Gracias{
 	margin-top: 0;
 	max-width: 200px;
+	width: 100%;
 	margin: auto;
 	margin-bottom:  40px;
 }
